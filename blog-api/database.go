@@ -11,25 +11,21 @@ var (
 )
 
 
-func CreateTable() {
-  //database, _ := sql.Open("sqlite3", "./test.db")
+func createTable() {
   statement, _ := database.Prepare("CREATE TABLE IF NOT EXISTS posts(post_id INTEGER PRIMARY KEY, title TEXT, content TEXT)")
   statement.Exec()
 }
 
 
-func AddPostToDb(newPost Post) {
+func addPostToDb(newPost Post) {
   fmt.Printf("adding post: %+v\n", newPost)
-  //database, _ := sql.Open("sqlite3", "./test.db")
   statement, _ := database.Prepare("INSERT INTO posts (title, content) VALUES (?, ?)")
   statement.Exec(newPost.Title, newPost.Content)
 }
 
 
-func GetPostsFromDb() Posts {
+func getPostsFromDb() Posts {
   posts := Posts{}
-
-  //database, _ := sql.Open("sqlite3", "./test.db")
   rows, _ := database.Query("SELECT * FROM posts")
 
   var id int

@@ -1,9 +1,20 @@
 version: "3.7"
 
 services:
-  blog_api:
-    image: kevcoxe/go-blog-api
-    container_name: go_blog_api
+  # blog_api:
+  #   image: kevcoxe/go-blog-api
+  #   container_name: go_blog_api
+  #   restart: always
+  #   environment:
+  #     - PORT=5000
+  #   expose:
+  #     - 5000
+  #   ports:
+  #     - "5000:5000"
+
+  blog_api_local:
+    build: ./blog-api
+    container_name: go_blog_api_local
     restart: always
     environment:
       - PORT=5000
@@ -12,13 +23,10 @@ services:
     ports:
       - "5000:5000"
 
-  # blog_api_local:
-  #   build: ./api
-  #   container_name: go_blog_api_local
-  #   restart: always
-  #   environment:
-  #     - PORT=5000
-  #   expose:
-  #     - 5000
-  #   ports:
-  #     - "5000:5000"
+  blog_frontend_react:
+    build: ./blog-frontend
+    container_name: go-blog-frontend-react
+    restart: always
+    ports:
+      - "80:80"
+
