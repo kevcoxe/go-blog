@@ -25,7 +25,7 @@ function App() {
         <h1>Here are my posts</h1>
         {posts.length > 0 ? posts.map((post) => {
           return (
-            <div key={ post.Id }>
+            <div className="post-container" key={ post.Id }>
               <p>{ post.Title }</p>
             </div>
           )
