@@ -26,7 +26,9 @@ function App() {
         {posts.length > 0 ? posts.map((post) => {
           return (
             <div className="post-container" key={ post.Id }>
-              <p>{ post.Title }</p>
+              <h5>{ post.Title }</h5>
+              <hr />
+              <p>{ post.Content }</p>
             </div>
           )
         }) : <p>No posts yet, come back latter</p>}
