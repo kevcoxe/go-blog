@@ -23,10 +23,10 @@ services:
     ports:
       - "5000:5000"
 
-  blog_frontend_react:
-    build: ./blog-frontend
-    container_name: go-blog-frontend-react
-    restart: always
-    ports:
-      - "80:80"
+  # blog_frontend_react:
+  #   build: ./blog-frontend
+  #   container_name: go-blog-frontend-react
+  #   restart: always
+  #   ports:
+  #     - "80:80"
 

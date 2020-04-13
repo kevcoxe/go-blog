@@ -17,6 +17,12 @@ func createTable() {
 }
 
 
+func newThing(something int, anotherThing string) string {
+  var output string = fmt.Sprintf("the output is %s %d", anotherThing, something)
+  return output
+}
+
+
 func addPostToDb(newPost Post) {
   fmt.Printf("adding post: %+v\n", newPost)
   statement, _ := database.Prepare("INSERT INTO posts (title, content) VALUES (?, ?)")

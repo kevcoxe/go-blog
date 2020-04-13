@@ -22,13 +22,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {posts.map((post) => {
+        <h1>Here are my posts</h1>
+        {posts.length > 0 ? posts.map((post) => {
           return (
             <div key={ post.Id }>
               <p>{ post.Title }</p>
             </div>
           )
-        })}
+        }) : <p>No posts yet, come back latter</p>}
       </header>
     </div>
   );

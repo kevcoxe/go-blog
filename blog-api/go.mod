@@ -1,4 +1,4 @@
-module github/kevcoxe/go-blog
+module github.com/kevcoxe/go-blog/blog-api
 
 go 1.14
 
