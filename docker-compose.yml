@@ -1,6 +1,7 @@
 version: "3.7"
 
 services:
+  # This is used to run the built container from docker hub
   # blog_api:
   #   image: kevcoxe/go-blog-api
   #   container_name: go_blog_api
@@ -12,6 +13,7 @@ services:
   #   ports:
   #     - "5000:5000"
 
+  # This is used to run and build the container that is local
   blog_api_local:
     build: ./blog-api
     container_name: go_blog_api_local
@@ -22,11 +24,4 @@ services:
       - 5000
     ports:
       - "5000:5000"
-
-  # blog_frontend_react:
-  #   build: ./blog-frontend
-  #   container_name: go-blog-frontend-react
-  #   restart: always
-  #   ports:
-  #     - "80:80"
 
