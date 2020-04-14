@@ -6,5 +6,5 @@ ADD . /app
 
 RUN go build -o app .
 
-CMD ["./app"]
+ENTRYPOINT ["./app"]
 
