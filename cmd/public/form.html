@@ -1,0 +1,17 @@
+<form action="{{ .Action }}" method="{{ .Method }}" class="flex flex-col gap-3 md:w-2/4">
+  <h3 class="text-2xl underline">{{ .Title }}</h3>
+  <p>{{ .Description }}</p>
+
+  {{ range .Elements }}
+    <div class="flex flex-col">
+      <label for="{{ .Name }}">{{ .Label }}</label>
+      {{ if eq .Type "textarea" }}
+        <textarea class="text-black px-3 py-2 h-60" id="{{ .Name }}" name="{{ .Name }}">{{ .Value }}</textarea>
+      {{ else }}
+        <input class="text-black px-3 py-2" type="{{ .Type }}" id="{{ .Name }}" name="{{ .Name }}" value="{{ .Value }}" />
+      {{ end }}
+    </div>
+  {{ end }}
+
+  <button class="rounded-none my-2 p-5 bg-blue-400" type="submit">Submit</button>
+</form>
