@@ -55,11 +55,11 @@ func (s *Server) DeletePostHandler(w http.ResponseWriter, r *http.Request) {
 
 	err := s.db.DeletePost(id)
 	if err != nil {
-		fmt.Printf("error deleting post: %v", err)
+		fmt.Printf("error deleting post: %v\n", err)
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 
-	fmt.Printf("deleted post with id: %v", id)
+	fmt.Printf("deleted post with id: %v\n", id)
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 

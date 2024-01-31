@@ -5,6 +5,7 @@ all: build
 
 build:
 	@echo "Building..."
+	cd frontend && pnpm run build && cd ..
 	@go build -o main cmd/api/main.go
 
 # Run the application
