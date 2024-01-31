@@ -46,18 +46,6 @@ func (s *Server) AddPostHandlerJson(w http.ResponseWriter, r *http.Request) {
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
-func (s *Server) AddPostHandler(w http.ResponseWriter, r *http.Request) {
-	title := r.FormValue("title")
-	content := r.FormValue("content")
-
-	err := s.db.AddPost(title, content)
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-	}
-
-	http.Redirect(w, r, "/", http.StatusSeeOther)
-}
-
 func (s *Server) DeletePostHandler(w http.ResponseWriter, r *http.Request) {
 	id := httprouter.ParamsFromContext(r.Context()).ByName("id")
 	if id == "" {
